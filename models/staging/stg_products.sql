@@ -6,4 +6,4 @@ SELECT
   brand,
   unit_price,
   updated_at
-FROM {{ source('raw', 'products') }};
+FROM {{ source('raw', 'products') }}

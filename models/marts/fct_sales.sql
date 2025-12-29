@@ -11,4 +11,4 @@ SELECT
   discount_amount,
   net_amount
 FROM {{ ref('int_order_lines') }}
-WHERE order_status = 'DELIVERED';
+WHERE order_status = 'DELIVERED'
