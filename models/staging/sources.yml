@@ -1,0 +1,12 @@
+version: 2
+
+sources:
+  - name: raw
+    database: ENTERPRISE_BI
+    schema: RAW
+    tables:
+      - name: customers
+      - name: products
+      - name: stores
+      - name: orders
+      - name: order_items
