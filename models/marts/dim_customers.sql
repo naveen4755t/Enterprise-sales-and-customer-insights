@@ -50,4 +50,4 @@ SELECT
         ELSE FALSE
     END AS is_current
 
-FROM history;
+FROM history

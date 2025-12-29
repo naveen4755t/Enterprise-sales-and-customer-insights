@@ -10,4 +10,4 @@ SELECT
   signup_date,
   status,
   updated_at
-FROM {{ source('raw', 'customers') }};
+FROM {{ source('raw', 'customers') }}

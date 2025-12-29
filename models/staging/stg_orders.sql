@@ -6,4 +6,4 @@ SELECT
   UPPER(order_status) AS order_status,
   payment_method,
   updated_at
-FROM {{ source('raw', 'orders') }};
+FROM {{ source('raw', 'orders') }}

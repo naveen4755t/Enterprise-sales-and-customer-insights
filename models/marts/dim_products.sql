@@ -5,4 +5,4 @@ SELECT DISTINCT
   subcategory,
   brand,
   unit_price
-FROM {{ ref('stg_products') }};
+FROM {{ ref('stg_products') }}
