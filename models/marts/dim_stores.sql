@@ -4,4 +4,4 @@ SELECT DISTINCT
   city,
   state,
   region
-FROM {{ ref('stg_stores') }};
+FROM {{ ref('stg_stores') }}
