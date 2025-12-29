@@ -1,0 +1,66 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: "Customer dimension table with historical tracking (SCD Type 2)"
+    columns:
+      - name: customer_id
+        description: "Customer business key"
+        tests:
+          - not_null
+
+      - name: is_current
+        description: "Indicates whether the record is the current customer profile"
+
+  - name: dim_products
+    description: "Product dimension table"
+    columns:
+      - name: product_id
+        description: "Product business key"
+        tests:
+          - not_null
+          - unique
+
+  - name: dim_stores
+    description: "Store dimension table"
+    columns:
+      - name: store_id
+        description: "Store business key"
+        tests:
+          - not_null
+          - unique
+
+  - name: fct_sales
+    description: "Fact table containing delivered sales at order line level"
+    columns:
+      - name: order_id
+        description: "Order identifier"
+        tests:
+          - not_null
+
+      - name: customer_id
+        description: "Customer linked to the sale"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_customers')
+              field: customer_id
+
+      - name: product_id
+        description: "Product sold"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_products')
+              field: product_id
+
+      - name: store_id
+        description: "Store where the sale occurred"
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_stores')
+              field: store_id
+
+      - name: net_amount
+        description: "Final sales amount after applying discount"
