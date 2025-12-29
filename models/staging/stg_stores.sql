@@ -5,4 +5,4 @@ SELECT
   state,
   region,
   updated_at
-FROM {{ source('raw', 'stores') }};
+FROM {{ source('raw', 'stores') }}
